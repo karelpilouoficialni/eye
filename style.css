@@ -853,26 +853,64 @@ h1 {
   color: var(--gold-bright);
 }
 
+@media (max-width: 768px) {
+  .hero{ padding: 5vh 5vw 6vh; }
+  .belief{ padding: 6vh 5vw 8vh; }
+  .panopticon, .creed{ padding: 4vh 5vw; }
+  .arcana, .hand-section, .nazar, .geometry, .illuminati{ padding: 4vh 5vw 8vh; }
+  .threshold{ padding: 5vh 5vw 8vh; }
+  .manuscript{ font-size: 1.05rem; }
+  .cards{ gap: 1rem; }
+}
+
 @media (max-width: 640px) {
-  .card-detail-inner {
+  .manuscript::first-letter{ font-size: 3.2rem; }
+  .cards{ grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+  .card-glyph{ font-size: 1.8rem; }
+  .card-name{ font-size: 0.75rem; }
+  .card-back{ font-size: 0.75rem; padding: 1rem; }
+  .eye-wrap{ width: min(85vw, 320px); margin-bottom: 1.5rem; }
+  .eyebrow{ font-size: 0.6rem; margin-bottom: 1.5rem; }
+  .subhead{ font-size: 1rem; margin-bottom: 2rem; }
+  .scroll-cue{ font-size: 0.7rem; padding: 0.6rem 1rem; }
+  .panopticon-body p{ padding-left: 1rem; }
+  .hand-section, .nazar, .geometry, .illuminati{ gap: 4vw; }
+  .hamsa-wrap{ width: min(50vw, 180px); }
+  .nazar-wrap{ width: min(40vw, 140px); }
+  .geo-wrap{ width: min(50vw, 200px); }
+  .illum-symbol{ width: min(40vw, 160px); }
+  .cipher{ font-size: 0.95rem; letter-spacing: 0.1em; margin-bottom: 3rem; }
+  .closing{ font-size: 0.95rem; }
+  .creed-body p{ font-size: 0.95rem; }
+
+  .card-detail-inner{
     flex-direction: column;
     gap: 2rem;
     padding: 1.5rem;
   }
-  .card-detail-card {
-    width: 140px;
-  }
-  .cd-eye-frame {
-    width: 90px;
-    height: 52px;
-  }
-  .card-detail-text {
-    font-size: 0.95rem;
-    text-align: center;
-  }
-  .card-detail-col-right {
-    align-items: center;
-  }
+  .card-detail-card{ width: 140px; }
+  .cd-eye-frame{ width: 90px; height: 52px; }
+  .card-detail-text{ font-size: 0.95rem; text-align: center; }
+  .card-detail-col-right{ align-items: center; }
+}
+
+@media (max-width: 480px) {
+  .hero{ padding: 4vh 4vw 5vh; }
+  .belief{ padding: 4vh 4vw 6vh; }
+  .panopticon, .creed{ padding: 3vh 4vw; }
+  .arcana, .hand-section, .nazar, .geometry, .illuminati{ padding: 3vh 4vw 6vh; }
+  .threshold{ padding: 4vh 4vw 6vh; }
+  .cards{ grid-template-columns: 1fr; max-width: 260px; margin: 0 auto; }
+  .card{ max-width: 220px; margin: 0 auto; }
+  .eye-wrap{ width: 90vw; }
+  .hand-section, .nazar, .geometry, .illuminati{ flex-direction: column; text-align: center; }
+  .hand-copy, .nazar-copy, .geo-copy, .illum-copy{ max-width: 100%; }
+  .manuscript{ font-size: 0.95rem; }
+  .manuscript::first-letter{ font-size: 2.6rem; }
+  .arcana-lore{ font-size: 0.9rem; }
+  .cipher{ font-size: 0.85rem; }
+  .card-detail-card{ width: 120px; }
+  .card-detail-glyph{ font-size: 2.4rem; }
 }
 
 .glitch-overlay {
@@ -899,22 +937,8 @@ h1 {
 }
 
 @keyframes flicker {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.3;
-  }
-}
-
-@media (max-width: 640px) {
-  .manuscript::first-letter {
-    font-size: 3.2rem;
-  }
-  .cards {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
 }
 
 html {
