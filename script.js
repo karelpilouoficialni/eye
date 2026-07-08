@@ -165,13 +165,59 @@ document.getElementById('scrollCue').addEventListener('click', () => {
 });
 
 /* ============================
-   TAROT CARDS
+   CARD DETAIL VIEW
    ============================ */
-document.querySelectorAll('.card').forEach(card => {
-  card.addEventListener('click', () => {
-    card.classList.toggle('flipped');
+(function cardDetail(){
+  const overlay = document.getElementById('cardDetail');
+  const closeBtn = document.getElementById('cardDetailClose');
+  const glyphEl = document.getElementById('cardDetailGlyph');
+  const nameEl = document.getElementById('cardDetailName');
+  const textEl = document.getElementById('cardDetailText');
+  const lidEl = document.getElementById('cdEyeLid');
+  let blinkTimer;
+
+  function openDetail(glyph, name, text){
+    glyphEl.textContent = glyph;
+    nameEl.textContent = name;
+    textEl.textContent = text;
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+
+    setTimeout(() => {
+      lidEl.classList.add('blink');
+      setTimeout(() => lidEl.classList.remove('blink'), 120);
+    }, 900);
+
+    blinkTimer = setInterval(() => {
+      lidEl.classList.add('blink');
+      setTimeout(() => lidEl.classList.remove('blink'), 120);
+    }, 3200);
+  }
+
+  function closeDetail(){
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+    clearInterval(blinkTimer);
+  }
+
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', e => {
+      e.stopPropagation();
+      const glyph = card.querySelector('.card-glyph').textContent;
+      const name = card.querySelector('.card-name').textContent;
+      const text = card.querySelector('.card-back').textContent.trim();
+      openDetail(glyph, name, text);
+    });
   });
-});
+
+  closeBtn.addEventListener('click', closeDetail);
+  overlay.addEventListener('click', e => {
+    if (e.target === overlay) closeDetail();
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeDetail();
+  });
+})();
 
 /* ============================
    CIPHER DECODE (Atbash, self-inverse)
