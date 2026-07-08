@@ -196,6 +196,23 @@ document.querySelectorAll('.card').forEach(card => {
 })();
 
 /* ============================
+   SCROLL REVEAL
+   ============================ */
+(function scrollReveal(){
+  const els = document.querySelectorAll('.reveal');
+  if (!els.length) return;
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting){
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  els.forEach(el => obs.observe(el));
+})();
+
+/* ============================
    ASTROLABE SEGMENTS
    ============================ */
 (function buildSegments(){
