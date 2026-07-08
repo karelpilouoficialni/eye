@@ -200,6 +200,24 @@ h1{
 }
 
 /* ============================
+   PANOPTICON
+   ============================ */
+.panopticon{
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 7vw 12vh;
+}
+
+.panopticon-body p{
+  font-size: 1rem;
+  line-height: 1.9;
+  color: var(--bone-dim);
+  border-left: 1px solid var(--brass);
+  padding-left: 1.5rem;
+  opacity: 0.85;
+}
+
+/* ============================
    ARCANA / CARDS
    ============================ */
 .arcana{
