@@ -13,10 +13,10 @@
   --violet: #4d3d63;
   --brass: #8a7550;
 
-  --display: 'Cinzel', serif;
-  --display-deco: 'Cinzel Decorative', serif;
-  --body: 'IM Fell English', serif;
-  --mono: 'Cutive Mono', monospace;
+  --display: 'Inter', sans-serif;
+  --display-deco: 'Inter', sans-serif;
+  --body: 'Inter', sans-serif;
+  --mono: 'JetBrains Mono', monospace;
 }
 
 *{ box-sizing: border-box; }
@@ -153,7 +153,7 @@ main{
 
 h1{
   font-family: var(--display);
-  font-weight: 900;
+  font-weight: 600;
   font-size: clamp(1.8rem, 5vw, 3.4rem);
   letter-spacing: 0.04em;
   line-height: 1.25;
@@ -210,12 +210,12 @@ h1{
 }
 
 .manuscript::first-letter{
-  font-family: var(--display-deco);
   font-size: 4.2rem;
   float: left;
   line-height: 0.8;
   padding: 0.1em 0.12em 0 0;
   color: var(--gold);
+  font-weight: 600;
 }
 
 /* ============================
