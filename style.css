@@ -630,6 +630,37 @@ h1{
   96%{ transform: translateX(-1px); opacity: 0.8; }
 }
 
+.creed{
+  max-width: 640px;
+  margin: 3vh auto;
+  padding: 6vh 7vw;
+  background: rgba(10,9,6,0.78);
+}
+
+.creed-body h2{
+  font-family: var(--display);
+  font-size: clamp(1.3rem, 3vw, 1.9rem);
+  letter-spacing: 0.03em;
+  margin-bottom: 1.5rem;
+}
+
+.creed-body p{
+  font-size: 1rem;
+  line-height: 1.9;
+  color: var(--bone-dim);
+  margin-bottom: 1.4rem;
+}
+
+.creed-amen{
+  font-family: var(--mono);
+  color: var(--brass) !important;
+  font-size: 0.85rem !important;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-top: 2rem;
+  text-align: right;
+}
+
 .threshold{
   text-align: center;
   margin: 3vh auto 0;
@@ -919,7 +950,7 @@ h1{
 
 html{ scroll-behavior: auto; }
 
-.hero, .belief, .panopticon, .arcana, .hand-section, .nazar, .geometry, .illuminati, .syslog, .threshold,
+.hero, .belief, .panopticon, .arcana, .hand-section, .nazar, .geometry, .illuminati, .syslog, .creed, .threshold,
 .card-face, .card-detail-card, .card-detail-close, .scroll-cue, .decode-btn{
   border-radius: 0 !important;
   backdrop-filter: none !important;
