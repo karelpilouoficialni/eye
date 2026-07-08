@@ -862,8 +862,8 @@ h1 {
   .arcana, .hand-section, .nazar, .geometry, .illuminati{ padding: 4vh 5vw 8vh; }
   .threshold{ padding: 5vh 5vw 8vh; }
   .manuscript{ font-size: 1.05rem; }
-  .cards{ grid-template-columns: 1fr; gap: 1rem; max-width: 320px; margin: 0 auto; }
-  .card{ max-width: 280px; margin: 0 auto; }
+  .cards{ grid-template-columns: 1fr; gap: 1rem; }
+  .card{ max-width: 340px; margin: 0 auto; }
   .eye-rays{ animation: spin 120s linear infinite; }
 }
 
@@ -906,8 +906,8 @@ h1 {
   .panopticon, .creed{ padding: 3vh 4vw; }
   .arcana, .hand-section, .nazar, .geometry, .illuminati{ padding: 3vh 4vw 6vh; }
   .threshold{ padding: 4vh 4vw 6vh; }
-  .cards{ grid-template-columns: 1fr; max-width: 260px; margin: 0 auto; }
-  .card{ max-width: 220px; margin: 0 auto; }
+  .cards{ grid-template-columns: 1fr; }
+  .card{ max-width: 300px; margin: 0 auto; }
   .eye-wrap{ width: 90vw; }
   .hand-section, .nazar, .geometry, .illuminati{ flex-direction: column; text-align: center; }
   .hand-copy, .nazar-copy, .geo-copy, .illum-copy{ max-width: 100%; }
