@@ -173,8 +173,13 @@ document.getElementById('scrollCue').addEventListener('click', () => {
   const glyphEl = document.getElementById('cardDetailGlyph');
   const nameEl = document.getElementById('cardDetailName');
   const textEl = document.getElementById('cardDetailText');
-  const lidEl = document.getElementById('cdEyeLid');
+  const eyeEl = document.getElementById('cdEyeViewport');
   let blinkTimer;
+
+  function doBlink(){
+    eyeEl.classList.add('blink');
+    setTimeout(() => eyeEl.classList.remove('blink'), 100);
+  }
 
   function openDetail(glyph, name, text){
     glyphEl.textContent = glyph;
@@ -183,15 +188,8 @@ document.getElementById('scrollCue').addEventListener('click', () => {
     overlay.classList.add('open');
     document.body.style.overflow = 'hidden';
 
-    setTimeout(() => {
-      lidEl.classList.add('blink');
-      setTimeout(() => lidEl.classList.remove('blink'), 120);
-    }, 900);
-
-    blinkTimer = setInterval(() => {
-      lidEl.classList.add('blink');
-      setTimeout(() => lidEl.classList.remove('blink'), 120);
-    }, 3200);
+    setTimeout(doBlink, 900);
+    blinkTimer = setInterval(doBlink, 3200);
   }
 
   function closeDetail(){
