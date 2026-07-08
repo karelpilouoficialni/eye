@@ -13,10 +13,10 @@
   --violet: #4d3d63;
   --brass: #8a7550;
 
-  --display: 'Inter', sans-serif;
-  --display-deco: 'Inter', sans-serif;
-  --body: 'Inter', sans-serif;
-  --mono: 'JetBrains Mono', monospace;
+  --display: system-ui, sans-serif;
+  --display-deco: system-ui, sans-serif;
+  --body: system-ui, sans-serif;
+  --mono: 'Courier New', monospace;
 }
 
 *{ box-sizing: border-box; }
@@ -679,24 +679,6 @@ h1{
 }
 
 /* ============================
-   SCANLINE OVERLAY
-   ============================ */
-body::after{
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  pointer-events: none;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(0,0,0,0.06) 2px,
-    rgba(0,0,0,0.06) 4px
-  );
-}
-
-/* ============================
    THRESHOLD / FOOTER
    ============================ */
 .threshold{
@@ -996,6 +978,43 @@ body::after{
 }
 
 /* ============================
+   DUMBIFIED — no smooth edges, no glass, no frills
+   ============================ */
+html{ scroll-behavior: auto; }
+
+.hero, .belief, .panopticon, .arcana, .hand-section, .geometry, .illuminati, .syslog, .threshold,
+.card-face, .card-detail-card, .card-detail-close, .scroll-cue, .decode-btn{
+  border-radius: 0 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.scroll-cue, .decode-btn, .card-detail-close{
+  box-shadow: none !important;
+}
+
+.scroll-cue:hover, .decode-btn:hover{
+  box-shadow: none !important;
+}
+
+.card-detail{
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+h1{
+  text-shadow: none !important;
+}
+
+.hero{
+  box-shadow: none !important;
+}
+
+.belief, .panopticon, .arcana, .hand-section, .geometry, .illuminati{
+  box-shadow: none !important;
+}
+
+/* ============================
    REDUCED MOTION
    ============================ */
 @media (prefers-reduced-motion: reduce){
@@ -1008,7 +1027,6 @@ body::after{
   .reveal{ opacity: 1; transform: none; transition: none; }
   .syslog-blink{ animation: none; }
   .syslog-body .glitch-text{ animation: none; }
-  body::after{ display: none; }
   .card-detail-card, .card-detail-text, .card-detail-close, .cd-eye-frame, .cd-eye-viewport{ transition: none; opacity: 1; animation: none; }
   .card-detail-card{ transform: none; }
   .cd-eye-viewport.blink{ animation: none; }
