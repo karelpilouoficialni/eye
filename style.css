@@ -854,18 +854,22 @@ h1 {
 }
 
 @media (max-width: 768px) {
-  .hero{ padding: 5vh 5vw 6vh; }
+  body{ background-attachment: scroll; }
+  main{ overflow-x: hidden; }
+  .hero{ padding: 5vh 5vw 6vh; min-height: 90svh; }
   .belief{ padding: 6vh 5vw 8vh; }
   .panopticon, .creed{ padding: 4vh 5vw; }
   .arcana, .hand-section, .nazar, .geometry, .illuminati{ padding: 4vh 5vw 8vh; }
   .threshold{ padding: 5vh 5vw 8vh; }
   .manuscript{ font-size: 1.05rem; }
-  .cards{ gap: 1rem; }
+  .cards{ grid-template-columns: 1fr; gap: 1rem; max-width: 320px; margin: 0 auto; }
+  .card{ max-width: 280px; margin: 0 auto; }
+  .eye-rays{ animation: spin 120s linear infinite; }
 }
 
 @media (max-width: 640px) {
   .manuscript::first-letter{ font-size: 3.2rem; }
-  .cards{ grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+  .cards{ gap: 0.8rem; }
   .card-glyph{ font-size: 1.8rem; }
   .card-name{ font-size: 0.75rem; }
   .card-back{ font-size: 0.75rem; padding: 1rem; }
@@ -873,7 +877,7 @@ h1 {
   .eyebrow{ font-size: 0.6rem; margin-bottom: 1.5rem; }
   .subhead{ font-size: 1rem; margin-bottom: 2rem; }
   .scroll-cue{ font-size: 0.7rem; padding: 0.6rem 1rem; }
-  .panopticon-body p{ padding-left: 1rem; }
+  .panopticon-body p{ padding-left: 1rem; letter-spacing: 0.01em; }
   .hand-section, .nazar, .geometry, .illuminati{ gap: 4vw; }
   .hamsa-wrap{ width: min(50vw, 180px); }
   .nazar-wrap{ width: min(40vw, 140px); }
@@ -882,6 +886,8 @@ h1 {
   .cipher{ font-size: 0.95rem; letter-spacing: 0.1em; margin-bottom: 3rem; }
   .closing{ font-size: 0.95rem; }
   .creed-body p{ font-size: 0.95rem; }
+  .hand-section, .nazar, .geometry, .illuminati{ flex-direction: column; text-align: center; }
+  .hand-copy, .nazar-copy, .geo-copy, .illum-copy{ max-width: 100%; }
 
   .card-detail-inner{
     flex-direction: column;
@@ -943,6 +949,7 @@ h1 {
 
 html {
   scroll-behavior: auto;
+  overflow-x: hidden;
 }
 
 .hero,
