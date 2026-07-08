@@ -1,6 +1,3 @@
-/* ============================
-   AMBIENT VEIL (background particles)
-   ============================ */
 (function veil(){
   const canvas = document.getElementById('veil');
   const ctx = canvas.getContext('2d');
@@ -49,9 +46,6 @@
   if (!reduced) tick();
 })();
 
-/* ============================
-   RADIATING RAYS BEHIND THE EYE
-   ============================ */
 (function buildRays(){
   const group = document.getElementById('rays');
   const cx = 300, cy = 300;
@@ -77,9 +71,6 @@
   }
 })();
 
-/* ============================
-   THE EYE: pupil tracking + idle dilation
-   ============================ */
 (function theEye(){
   const eyeSvg = document.querySelector('.eye');
   const pupilGroup = document.getElementById('pupilGroup');
@@ -125,9 +116,6 @@
   loop();
 })();
 
-/* ============================
-   HAMSA EYE: gentle parallax
-   ============================ */
 (function hamsaEye(){
   const svg = document.querySelector('.hamsa');
   const group = document.getElementById('hamsaEyeGroup');
@@ -157,16 +145,8 @@
   loop();
 })();
 
-/* ============================
-   SCROLL CUE
-   ============================ */
-document.getElementById('scrollCue').addEventListener('click', () => {
-  document.querySelector('.belief').scrollIntoView({ behavior: 'smooth' });
-});
 
-/* ============================
-   CARD DETAIL VIEW
-   ============================ */
+
 (function cardDetail(){
   const overlay = document.getElementById('cardDetail');
   const closeBtn = document.getElementById('cardDetailClose');
@@ -222,28 +202,6 @@ document.getElementById('scrollCue').addEventListener('click', () => {
   });
 })();
 
-/* cipher removed — reader must decode it themselves */
-
-/* ============================
-   SCROLL REVEAL
-   ============================ */
-(function scrollReveal(){
-  const els = document.querySelectorAll('.reveal');
-  if (!els.length) return;
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting){
-        entry.target.classList.add('visible');
-        obs.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15 });
-  els.forEach(el => obs.observe(el));
-})();
-
-/* ============================
-   ASTROLABE SEGMENTS
-   ============================ */
 (function buildSegments(){
   const group = document.getElementById('geoSegments');
   if (!group) return;
@@ -294,9 +252,6 @@ document.getElementById('scrollCue').addEventListener('click', () => {
   });
 })();
 
-/* ============================
-   THE SEAM (konami-style easter egg)
-   ============================ */
 (function theSeam(){
   const sequence = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
   let pos = 0;
