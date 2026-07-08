@@ -454,6 +454,7 @@ h1{
 }
 
 .astrolabe-inner{
+  transform-origin: 200px 200px;
   animation: revolve-reverse 40s linear infinite;
 }
 
