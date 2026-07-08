@@ -1,14 +1,14 @@
-(function veil(){
-  const canvas = document.getElementById('veil');
-  const ctx = canvas.getContext('2d');
+(function veil() {
+  const canvas = document.getElementById("veil");
+  const ctx = canvas.getContext("2d");
   let w, h, particles;
 
-  function resize(){
+  function resize() {
     w = canvas.width = window.innerWidth;
     h = canvas.height = window.innerHeight;
   }
 
-  function makeParticles(){
+  function makeParticles() {
     const count = Math.min(70, Math.floor((w * h) / 22000));
     particles = Array.from({ length: count }, () => ({
       x: Math.random() * w,
@@ -16,17 +16,20 @@
       r: Math.random() * 1.4 + 0.4,
       speed: Math.random() * 0.15 + 0.03,
       drift: (Math.random() - 0.5) * 0.06,
-      alpha: Math.random() * 0.4 + 0.1
+      alpha: Math.random() * 0.4 + 0.1,
     }));
   }
 
-  function tick(){
+  function tick() {
     ctx.clearRect(0, 0, w, h);
-    ctx.fillStyle = '#c9a13b';
-    particles.forEach(p => {
+    ctx.fillStyle = "#c9a13b";
+    particles.forEach((p) => {
       p.y -= p.speed;
       p.x += p.drift;
-      if (p.y < -5) { p.y = h + 5; p.x = Math.random() * w; }
+      if (p.y < -5) {
+        p.y = h + 5;
+        p.x = Math.random() * w;
+      }
       if (p.x < -5) p.x = w + 5;
       if (p.x > w + 5) p.x = -5;
       ctx.globalAlpha = p.alpha;
@@ -38,19 +41,23 @@
     requestAnimationFrame(tick);
   }
 
-  window.addEventListener('resize', () => { resize(); makeParticles(); });
+  window.addEventListener("resize", () => {
+    resize();
+    makeParticles();
+  });
   resize();
   makeParticles();
 
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (!reduced) tick();
 })();
 
-(function buildRays(){
-  const group = document.getElementById('rays');
-  const cx = 300, cy = 300;
+(function buildRays() {
+  const group = document.getElementById("rays");
+  const cx = 300,
+    cy = 300;
   const count = 48;
-  for (let i = 0; i < count; i++){
+  for (let i = 0; i < count; i++) {
     const angle = (i / count) * Math.PI * 2;
     const long = i % 4 === 0;
     const inner = long ? 220 : 240;
@@ -59,22 +66,22 @@
     const y1 = cy + Math.sin(angle) * inner;
     const x2 = cx + Math.cos(angle) * outer;
     const y2 = cy + Math.sin(angle) * outer;
-    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-    line.setAttribute('x1', x1);
-    line.setAttribute('y1', y1);
-    line.setAttribute('x2', x2);
-    line.setAttribute('y2', y2);
-    line.setAttribute('stroke', long ? '#c9a13b' : '#8a7550');
-    line.setAttribute('stroke-width', long ? 1.4 : 0.7);
-    line.setAttribute('opacity', long ? 0.5 : 0.25);
+    const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+    line.setAttribute("x1", x1);
+    line.setAttribute("y1", y1);
+    line.setAttribute("x2", x2);
+    line.setAttribute("y2", y2);
+    line.setAttribute("stroke", long ? "#c9a13b" : "#8a7550");
+    line.setAttribute("stroke-width", long ? 1.4 : 0.7);
+    line.setAttribute("opacity", long ? 0.5 : 0.25);
     group.appendChild(line);
   }
 })();
 
-(function theEye(){
-  const eyeSvg = document.querySelector('.eye');
-  const pupilGroup = document.getElementById('pupilGroup');
-  const iris = document.querySelector('.iris');
+(function theEye() {
+  const eyeSvg = document.querySelector(".eye");
+  const pupilGroup = document.getElementById("pupilGroup");
+  const iris = document.querySelector(".iris");
 
   let target = { x: 0, y: 0 };
   let current = { x: 0, y: 0 };
@@ -82,9 +89,10 @@
   let irisTarget = 62;
   let irisCurrent = 62;
 
-  const maxX = 16, maxY = 9;
+  const maxX = 16,
+    maxY = 9;
 
-  function onMove(e){
+  function onMove(e) {
     lastMove = Date.now();
     const rect = eyeSvg.getBoundingClientRect();
     const cx = rect.left + rect.width / 2;
@@ -99,149 +107,168 @@
     target.y = ny * maxY * pull;
   }
 
-  window.addEventListener('mousemove', onMove);
+  window.addEventListener("mousemove", onMove);
 
-  function loop(){
+  function loop() {
     current.x += (target.x - current.x) * 0.12;
     current.y += (target.y - current.y) * 0.12;
-    pupilGroup.setAttribute('transform', `translate(${current.x.toFixed(2)}, ${current.y.toFixed(2)})`);
+    pupilGroup.setAttribute(
+      "transform",
+      `translate(${current.x.toFixed(2)}, ${current.y.toFixed(2)})`,
+    );
 
     const idleFor = Date.now() - lastMove;
     irisTarget = idleFor > 1800 ? 72 : 62;
     irisCurrent += (irisTarget - irisCurrent) * 0.03;
-    iris.setAttribute('r', irisCurrent.toFixed(2));
+    iris.setAttribute("r", irisCurrent.toFixed(2));
 
     requestAnimationFrame(loop);
   }
   loop();
 })();
 
-
-
-(function cardDetail(){
-  const overlay = document.getElementById('cardDetail');
-  const closeBtn = document.getElementById('cardDetailClose');
-  const glyphEl = document.getElementById('cardDetailGlyph');
-  const nameEl = document.getElementById('cardDetailName');
-  const textEl = document.getElementById('cardDetailText');
-  const eyeEl = document.getElementById('cdEyeViewport');
+(function cardDetail() {
+  const overlay = document.getElementById("cardDetail");
+  const closeBtn = document.getElementById("cardDetailClose");
+  const glyphEl = document.getElementById("cardDetailGlyph");
+  const nameEl = document.getElementById("cardDetailName");
+  const textEl = document.getElementById("cardDetailText");
+  const eyeEl = document.getElementById("cdEyeViewport");
   let blinkTimer;
 
-  function doBlink(){
-    eyeEl.classList.remove('blink');
+  function doBlink() {
+    eyeEl.classList.remove("blink");
     void eyeEl.offsetWidth;
-    eyeEl.classList.add('blink');
+    eyeEl.classList.add("blink");
   }
 
-  eyeEl.addEventListener('animationend', () => {
-    eyeEl.classList.remove('blink');
+  eyeEl.addEventListener("animationend", () => {
+    eyeEl.classList.remove("blink");
   });
 
-  function openDetail(glyph, name, text){
+  function openDetail(glyph, name, text) {
     glyphEl.textContent = glyph;
     nameEl.textContent = name;
     textEl.textContent = text;
-    overlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
+    overlay.classList.add("open");
+    document.body.style.overflow = "hidden";
 
     setTimeout(doBlink, 900);
     blinkTimer = setInterval(doBlink, 3200);
   }
 
-  function closeDetail(){
-    overlay.classList.remove('open');
-    document.body.style.overflow = '';
+  function closeDetail() {
+    overlay.classList.remove("open");
+    document.body.style.overflow = "";
     clearInterval(blinkTimer);
   }
 
-  document.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('click', e => {
+  document.querySelectorAll(".card").forEach((card) => {
+    card.addEventListener("click", (e) => {
       e.stopPropagation();
-      const glyph = card.querySelector('.card-glyph').textContent;
-      const name = card.querySelector('.card-name').textContent;
-      const text = card.querySelector('.card-back').textContent.trim();
+      const glyph = card.querySelector(".card-glyph").textContent;
+      const name = card.querySelector(".card-name").textContent;
+      const text = card.querySelector(".card-back").textContent.trim();
       openDetail(glyph, name, text);
     });
   });
 
-  closeBtn.addEventListener('click', closeDetail);
-  overlay.addEventListener('click', e => {
+  closeBtn.addEventListener("click", closeDetail);
+  overlay.addEventListener("click", (e) => {
     if (e.target === overlay) closeDetail();
   });
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeDetail();
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeDetail();
   });
 })();
 
-(function buildSegments(){
-  const group = document.getElementById('geoSegments');
+(function buildSegments() {
+  const group = document.getElementById("geoSegments");
   if (!group) return;
-  const cx = 200, cy = 200;
-  const ns = 'http://www.w3.org/2000/svg';
+  const cx = 200,
+    cy = 200;
+  const ns = "http://www.w3.org/2000/svg";
   const rings = [35, 75, 115, 155];
   const count = 36;
 
   const cardinal = [0, 90, 180, 270];
-  cardinal.forEach(deg => {
+  cardinal.forEach((deg) => {
     const rad = (deg / 180) * Math.PI;
     const x = cx + Math.cos(rad) * 190;
     const y = cy + Math.sin(rad) * 190;
-    const line = document.createElementNS(ns, 'line');
-    line.setAttribute('x1', cx);
-    line.setAttribute('y1', cy);
-    line.setAttribute('x2', x);
-    line.setAttribute('y2', y);
-    line.setAttribute('class', 'geo-ray');
+    const line = document.createElementNS(ns, "line");
+    line.setAttribute("x1", cx);
+    line.setAttribute("y1", cy);
+    line.setAttribute("x2", x);
+    line.setAttribute("y2", y);
+    line.setAttribute("class", "geo-ray");
     group.appendChild(line);
   });
-  for (let i = 0; i < count; i++){
+  for (let i = 0; i < count; i++) {
     const angle = (i / count) * Math.PI * 2;
     const x = cx + Math.cos(angle) * 190;
     const y = cy + Math.sin(angle) * 190;
-    const line = document.createElementNS(ns, 'line');
-    line.setAttribute('x1', cx);
-    line.setAttribute('y1', cy);
-    line.setAttribute('x2', x);
-    line.setAttribute('y2', y);
+    const line = document.createElementNS(ns, "line");
+    line.setAttribute("x1", cx);
+    line.setAttribute("y1", cy);
+    line.setAttribute("x2", x);
+    line.setAttribute("y2", y);
     group.appendChild(line);
   }
-  rings.forEach(r => {
-    for (let i = 0; i < count; i++){
+  rings.forEach((r) => {
+    for (let i = 0; i < count; i++) {
       const angle = (i / count) * Math.PI * 2;
       const next = ((i + 1) / count) * Math.PI * 2;
       const x1 = cx + Math.cos(angle) * r;
       const y1 = cy + Math.sin(angle) * r;
       const x2 = cx + Math.cos(next) * r;
       const y2 = cy + Math.sin(next) * r;
-      const line = document.createElementNS(ns, 'line');
-      line.setAttribute('x1', x1);
-      line.setAttribute('y1', y1);
-      line.setAttribute('x2', x2);
-      line.setAttribute('y2', y2);
+      const line = document.createElementNS(ns, "line");
+      line.setAttribute("x1", x1);
+      line.setAttribute("y1", y1);
+      line.setAttribute("x2", x2);
+      line.setAttribute("y2", y2);
       group.appendChild(line);
     }
   });
 })();
 
-(function theSeam(){
-  const sequence = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+(function theSeam() {
+  const sequence = [
+    "ArrowUp",
+    "ArrowUp",
+    "ArrowDown",
+    "ArrowDown",
+    "ArrowLeft",
+    "ArrowRight",
+    "ArrowLeft",
+    "ArrowRight",
+    "b",
+    "a",
+  ];
   let pos = 0;
-  const overlay = document.getElementById('glitchOverlay');
+  const overlay = document.getElementById("glitchOverlay");
 
-  window.addEventListener('keydown', e => {
+  window.addEventListener("keydown", (e) => {
     const key = e.key.length === 1 ? e.key.toLowerCase() : e.key;
     if (key === sequence[pos]) {
       pos++;
       if (pos === sequence.length) {
         pos = 0;
-        overlay.classList.add('show');
-        setTimeout(() => overlay.classList.remove('show'), 1600);
+        overlay.classList.add("show");
+        setTimeout(() => overlay.classList.remove("show"), 1600);
       }
     } else {
       pos = key === sequence[0] ? 1 : 0;
     }
   });
 
-  console.log('%cif you are reading this, you found the seam.', 'color:#c9a13b; font-size:14px;');
-  console.log('%cthe rest of the pattern is not in this file.', 'color:#8a7550; font-size:12px;');
+  console.log(
+    "%cif you are reading this, you found the seam.",
+    "color:#c9a13b; font-size:14px;",
+  );
+  console.log(
+    "%cthe rest of the pattern is not in this file.",
+    "color:#8a7550; font-size:12px;",
+  );
 })();
