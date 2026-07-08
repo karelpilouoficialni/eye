@@ -856,7 +856,7 @@ h1 {
 @media (max-width: 768px) {
   body{ background-attachment: scroll; }
   main{ overflow-x: hidden; }
-  .hero{ padding: 5vh 5vw 6vh; min-height: 90svh; }
+  .hero{ padding: 5vh 5vw 6vh; min-height: 90svh; overflow: hidden; }
   .belief{ padding: 6vh 5vw 8vh; }
   .panopticon, .creed{ padding: 4vh 5vw; }
   .arcana, .hand-section, .nazar, .geometry, .illuminati{ padding: 4vh 5vw 8vh; }
