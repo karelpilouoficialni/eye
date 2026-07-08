@@ -35,10 +35,19 @@ html{ scroll-behavior: smooth; }
 
 body{
   margin: 0;
-  background: var(--void);
+  background: url('eyes.png') center/cover fixed;
   color: var(--bone);
   font-family: var(--body);
   overflow-x: hidden;
+}
+
+body::before{
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(10,9,6,0.35);
+  z-index: 0;
+  pointer-events: none;
 }
 
 ::selection{
@@ -56,7 +65,7 @@ button:focus-visible{
   position: fixed;
   inset: 0;
   z-index: -1;
-  opacity: 0.5;
+  opacity: 0.15;
 }
 
 main{
@@ -76,6 +85,10 @@ main{
   text-align: center;
   padding: 6vh 6vw 8vh;
   position: relative;
+  background: rgba(10,9,6,0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 0 40px rgba(0,0,0,0.5), inset 0 -1px 0 rgba(138,117,80,0.15);
 }
 
 .eyebrow{
@@ -146,7 +159,7 @@ h1{
   line-height: 1.25;
   margin: 0 0 1rem;
   color: var(--bone);
-  text-shadow: 0 0 40px rgba(201,161,59,0.15);
+  text-shadow: 0 2px 16px rgba(0,0,0,0.6), 0 0 40px rgba(201,161,59,0.15);
 }
 
 .subhead{
@@ -180,8 +193,14 @@ h1{
    ============================ */
 .belief{
   max-width: 680px;
-  margin: 0 auto;
-  padding: 14vh 7vw 16vh;
+  margin: 3vh auto;
+  padding: 10vh 7vw 12vh;
+  background: rgba(10,9,6,0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 16px;
+  border: 1px solid rgba(138,117,80,0.2);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
 }
 
 .manuscript{
@@ -204,8 +223,14 @@ h1{
    ============================ */
 .panopticon{
   max-width: 640px;
-  margin: 0 auto;
-  padding: 0 7vw 12vh;
+  margin: 3vh auto;
+  padding: 6vh 7vw;
+  background: rgba(10,9,6,0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 16px;
+  border: 1px solid rgba(138,117,80,0.2);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
 }
 
 .panopticon-body p{
@@ -222,9 +247,15 @@ h1{
    ============================ */
 .arcana{
   max-width: 1100px;
-  margin: 0 auto;
-  padding: 4vh 6vw 16vh;
+  margin: 3vh auto;
+  padding: 6vh 6vw 12vh;
   text-align: center;
+  background: rgba(10,9,6,0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 16px;
+  border: 1px solid rgba(138,117,80,0.2);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
 }
 
 .arcana h2{
@@ -319,8 +350,14 @@ h1{
   justify-content: center;
   gap: 5vw;
   max-width: 1100px;
-  margin: 0 auto;
-  padding: 6vh 6vw 18vh;
+  margin: 3vh auto;
+  padding: 6vh 6vw 12vh;
+  background: rgba(10,9,6,0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 16px;
+  border: 1px solid rgba(138,117,80,0.2);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
 }
 
 .hand-copy{
@@ -378,8 +415,14 @@ h1{
   justify-content: center;
   gap: 5vw;
   max-width: 1100px;
-  margin: 0 auto;
-  padding: 6vh 6vw 18vh;
+  margin: 3vh auto;
+  padding: 6vh 6vw 12vh;
+  background: rgba(10,9,6,0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 16px;
+  border: 1px solid rgba(138,117,80,0.2);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
 }
 
 .geo-copy{
@@ -440,8 +483,13 @@ h1{
    ============================ */
 .threshold{
   text-align: center;
+  margin: 3vh auto 0;
   padding: 8vh 6vw 10vh;
-  border-top: 1px solid var(--void-3);
+  background: rgba(10,9,6,0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(138,117,80,0.15);
+  box-shadow: 0 -4px 30px rgba(0,0,0,0.4);
 }
 
 .cipher-label{
