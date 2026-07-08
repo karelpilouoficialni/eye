@@ -236,10 +236,10 @@ h1{
 }
 
 .arcana-hint{
-  font-family: var(--mono);
-  font-size: 0.75rem;
+  font-family: var(--display);
+  font-size: 1rem;
   letter-spacing: 0.08em;
-  color: var(--brass);
+  color: var(--bone-dim);
   margin-bottom: 1.5rem;
 }
 
