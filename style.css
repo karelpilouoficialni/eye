@@ -358,24 +358,9 @@ h1{
   width: min(60vw, 260px);
 }
 
-.hamsa{
+.hamsa-img{
   width: 100%;
-  filter: drop-shadow(0 0 24px rgba(77,61,99,0.4));
-}
-
-.hamsa-body{
-  fill: var(--void-3);
-  stroke: var(--violet);
-  stroke-width: 1.5;
-}
-
-.hamsa-iris{
-  fill: var(--gold);
-  animation: pulse 4s ease-in-out infinite;
-}
-
-.hamsa-pupil{
-  fill: var(--void);
+  display: block;
 }
 
 @keyframes pulse{
@@ -970,7 +955,6 @@ h1{
   html{ scroll-behavior: auto; }
   .eye-rays{ animation: none; }
   .astrolabe, .astrolabe-inner{ animation: none; }
-  .hamsa-iris{ animation: none; }
   .card-face{ transition: none; }
   #pupilGroup{ transition: none; }
   .syslog-blink{ animation: none; }

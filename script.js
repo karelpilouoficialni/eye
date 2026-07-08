@@ -116,35 +116,6 @@
   loop();
 })();
 
-(function hamsaEye(){
-  const svg = document.querySelector('.hamsa');
-  const group = document.getElementById('hamsaEyeGroup');
-  if (!svg || !group) return;
-
-  let target = { x: 0, y: 0 };
-  let current = { x: 0, y: 0 };
-  const max = 5;
-
-  window.addEventListener('mousemove', e => {
-    const rect = svg.getBoundingClientRect();
-    if (rect.width === 0) return;
-    const cx = rect.left + rect.width / 2;
-    const cy = rect.top + rect.height / 2;
-    const dx = (e.clientX - cx) / rect.width;
-    const dy = (e.clientY - cy) / rect.height;
-    target.x = Math.max(-1, Math.min(1, dx)) * max;
-    target.y = Math.max(-1, Math.min(1, dy)) * max;
-  });
-
-  function loop(){
-    current.x += (target.x - current.x) * 0.08;
-    current.y += (target.y - current.y) * 0.08;
-    group.setAttribute('transform', `translate(${current.x.toFixed(2)}, ${current.y.toFixed(2)})`);
-    requestAnimationFrame(loop);
-  }
-  loop();
-})();
-
 
 
 (function cardDetail(){
