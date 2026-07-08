@@ -735,13 +735,6 @@ body::after{
   margin: 0 auto 3rem;
 }
 
-.signature{
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  color: var(--brass);
-  opacity: 0.6;
-}
-
 /* ============================
    CARD DETAIL OVERLAY
    ============================ */
