@@ -222,27 +222,7 @@ document.getElementById('scrollCue').addEventListener('click', () => {
   });
 })();
 
-/* ============================
-   CIPHER DECODE (Atbash, self-inverse)
-   ============================ */
-(function cipher(){
-  const el = document.getElementById('cipherText');
-  const btn = document.getElementById('decodeBtn');
-  let decoded = false;
-
-  function atbash(str){
-    return str.replace(/[A-Z]/g, c =>
-      String.fromCharCode(90 - (c.charCodeAt(0) - 65))
-    );
-  }
-
-  btn.addEventListener('click', () => {
-    el.textContent = atbash(el.textContent);
-    decoded = !decoded;
-    el.classList.toggle('decoded', decoded);
-    btn.textContent = decoded ? 'encode again' : 'decode';
-  });
-})();
+/* cipher removed — reader must decode it themselves */
 
 /* ============================
    SCROLL REVEAL
