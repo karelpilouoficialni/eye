@@ -327,10 +327,12 @@ h1{
   border: 1px solid var(--gold);
   transform: rotateY(180deg);
   font-family: var(--mono);
-  font-size: 0.78rem;
-  line-height: 1.6;
-  letter-spacing: 0.04em;
+  font-size: 0.82rem;
+  line-height: 1.7;
+  letter-spacing: 0.02em;
   color: var(--bone);
+  text-align: left;
+  padding: 1.4rem;
 }
 
 .card.flipped .card-front{ transform: rotateY(-180deg); }
