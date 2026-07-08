@@ -870,7 +870,7 @@ h1 {
   .card{ width: 100%; max-width: 380px; margin: 0; }
   .card-glyph{ font-size: 1.8rem; }
   .card-name{ font-size: 0.8rem; }
-  .card-back{ font-size: 0.8rem; padding: 1rem; }
+  .card-back{ font-size: 0.8rem; padding: 1rem; text-align: center; }
   .eye-wrap{ width: min(85vw, 320px); margin-bottom: 1.5rem; }
   .eyebrow{ font-size: 0.6rem; margin-bottom: 1.5rem; }
   .subhead{ font-size: 1rem; margin-bottom: 2rem; }
