@@ -449,35 +449,58 @@ h1{
 
 .astrolabe{
   width: 100%;
-  filter: drop-shadow(0 0 40px rgba(201,161,59,0.12));
-  animation: revolve 120s linear infinite;
+  filter: drop-shadow(0 0 60px rgba(201,161,59,0.2));
+  animation: revolve 25s linear infinite;
+}
+
+.astrolabe-inner{
+  animation: revolve-reverse 40s linear infinite;
 }
 
 @keyframes revolve{ to{ transform: rotate(360deg); } }
+@keyframes revolve-reverse{ to{ transform: rotate(-360deg); } }
 
 .geo-ring{
   fill: none;
   stroke: var(--brass);
-  stroke-width: 0.6;
-  opacity: 0.35;
+  stroke-width: 1.2;
+  opacity: 0.55;
 }
 
 .geo-ring-outer{
   stroke: var(--gold);
-  stroke-width: 1;
-  opacity: 0.5;
+  stroke-width: 1.5;
+  opacity: 0.75;
 }
 
 #geoSegments line{
   stroke: var(--brass);
-  stroke-width: 0.4;
-  opacity: 0.2;
+  stroke-width: 0.8;
+  opacity: 0.35;
 }
 
 .geo-eye{
   fill: var(--gold);
-  opacity: 0.6;
-  animation: pulse 3s ease-in-out infinite;
+  opacity: 0.8;
+  animation: pulse 2s ease-in-out infinite;
+  filter: drop-shadow(0 0 8px rgba(201,161,59,0.6));
+}
+
+.geo-marker{
+  fill: var(--gold-bright);
+  opacity: 0.9;
+  animation: markerPulse 2s ease-in-out infinite;
+}
+
+@keyframes markerPulse{
+  0%, 100%{ opacity: 0.6; }
+  50%{ opacity: 1; }
+}
+
+.geo-ray{
+  stroke: var(--gold);
+  stroke-width: 0.5;
+  opacity: 0.3;
 }
 
 /* ============================
@@ -816,7 +839,7 @@ h1{
 @media (prefers-reduced-motion: reduce){
   html{ scroll-behavior: auto; }
   .eye-rays{ animation: none; }
-  .astrolabe{ animation: none; }
+  .astrolabe, .astrolabe-inner{ animation: none; }
   .hamsa-iris{ animation: none; }
   .card-face{ transition: none; }
   #pupilGroup{ transition: none; }

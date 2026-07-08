@@ -213,12 +213,18 @@
     <div class="geo-wrap">
       <svg class="astrolabe" viewBox="0 0 400 400" aria-hidden="true">
         <circle class="geo-ring geo-ring-outer" cx="200" cy="200" r="190" />
-        <circle class="geo-ring" cx="200" cy="200" r="155" />
-        <circle class="geo-ring" cx="200" cy="200" r="115" />
-        <circle class="geo-ring" cx="200" cy="200" r="75" />
-        <circle class="geo-ring" cx="200" cy="200" r="35" />
-        <g id="geoSegments"></g>
-        <circle class="geo-eye" cx="200" cy="200" r="10" />
+        <g class="astrolabe-inner">
+          <circle class="geo-ring" cx="200" cy="200" r="155" />
+          <circle class="geo-ring" cx="200" cy="200" r="115" />
+          <circle class="geo-ring" cx="200" cy="200" r="75" />
+          <circle class="geo-ring" cx="200" cy="200" r="35" />
+          <g id="geoSegments"></g>
+          <circle class="geo-eye" cx="200" cy="200" r="10" />
+        </g>
+        <circle class="geo-marker" cx="200" cy="10" r="4" />
+        <circle class="geo-marker" cx="200" cy="390" r="4" />
+        <circle class="geo-marker" cx="10" cy="200" r="4" />
+        <circle class="geo-marker" cx="390" cy="200" r="4" />
       </svg>
     </div>
   </section>

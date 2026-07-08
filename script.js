@@ -268,13 +268,28 @@ document.getElementById('scrollCue').addEventListener('click', () => {
   const group = document.getElementById('geoSegments');
   if (!group) return;
   const cx = 200, cy = 200;
+  const ns = 'http://www.w3.org/2000/svg';
   const rings = [35, 75, 115, 155];
   const count = 36;
+
+  const cardinal = [0, 90, 180, 270];
+  cardinal.forEach(deg => {
+    const rad = (deg / 180) * Math.PI;
+    const x = cx + Math.cos(rad) * 190;
+    const y = cy + Math.sin(rad) * 190;
+    const line = document.createElementNS(ns, 'line');
+    line.setAttribute('x1', cx);
+    line.setAttribute('y1', cy);
+    line.setAttribute('x2', x);
+    line.setAttribute('y2', y);
+    line.setAttribute('class', 'geo-ray');
+    group.appendChild(line);
+  });
   for (let i = 0; i < count; i++){
     const angle = (i / count) * Math.PI * 2;
     const x = cx + Math.cos(angle) * 190;
     const y = cy + Math.sin(angle) * 190;
-    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    const line = document.createElementNS(ns, 'line');
     line.setAttribute('x1', cx);
     line.setAttribute('y1', cy);
     line.setAttribute('x2', x);
@@ -289,7 +304,7 @@ document.getElementById('scrollCue').addEventListener('click', () => {
       const y1 = cy + Math.sin(angle) * r;
       const x2 = cx + Math.cos(next) * r;
       const y2 = cy + Math.sin(next) * r;
-      const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      const line = document.createElementNS(ns, 'line');
       line.setAttribute('x1', x1);
       line.setAttribute('y1', y1);
       line.setAttribute('x2', x2);
