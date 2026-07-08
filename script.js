@@ -177,9 +177,14 @@ document.getElementById('scrollCue').addEventListener('click', () => {
   let blinkTimer;
 
   function doBlink(){
+    eyeEl.classList.remove('blink');
+    void eyeEl.offsetWidth;
     eyeEl.classList.add('blink');
-    setTimeout(() => eyeEl.classList.remove('blink'), 100);
   }
+
+  eyeEl.addEventListener('animationend', () => {
+    eyeEl.classList.remove('blink');
+  });
 
   function openDetail(glyph, name, text){
     glyphEl.textContent = glyph;
