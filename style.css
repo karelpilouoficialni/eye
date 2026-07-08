@@ -270,7 +270,16 @@ h1{
   font-size: 0.75rem;
   letter-spacing: 0.08em;
   color: var(--brass);
-  margin-bottom: 4rem;
+  margin-bottom: 1.5rem;
+}
+
+.arcana-lore{
+  max-width: 560px;
+  margin: 0 auto 4rem;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--bone-dim);
+  opacity: 0.8;
 }
 
 .cards{
@@ -502,6 +511,80 @@ h1{
   stroke: var(--gold);
   stroke-width: 0.5;
   opacity: 0.3;
+}
+
+/* ============================
+   ILLUMINATI
+   ============================ */
+.illuminati{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 5vw;
+  max-width: 1100px;
+  margin: 3vh auto;
+  padding: 6vh 6vw 12vh;
+  background: rgba(10,9,6,0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 16px;
+  border: 1px solid rgba(138,117,80,0.2);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+}
+
+.illum-copy{
+  max-width: 420px;
+}
+
+.illum-copy h2{
+  font-family: var(--display);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  line-height: 1.35;
+  margin-bottom: 1.2rem;
+}
+
+.illum-copy p{
+  color: var(--bone-dim);
+  line-height: 1.8;
+}
+
+.illum-symbol{
+  width: min(50vw, 220px);
+  opacity: 0.85;
+}
+
+.illum-eye{
+  width: 100%;
+  filter: drop-shadow(0 0 30px rgba(201,161,59,0.2));
+}
+
+.illum-pyramid{
+  fill: none;
+  stroke: var(--brass);
+  stroke-width: 1.5;
+  opacity: 0.6;
+}
+
+.illum-capstone{
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1.5;
+  opacity: 0.8;
+}
+
+.illum-iris{
+  fill: var(--gold);
+  animation: cdPulse 3s ease-in-out infinite;
+}
+
+.illum-pupil{
+  fill: var(--void);
+}
+
+.illum-glint{
+  fill: var(--bone);
+  opacity: 0.7;
 }
 
 /* ============================
@@ -817,7 +900,7 @@ h1{
   html{ scroll-behavior: auto; }
   .eye-rays{ animation: none; }
   .astrolabe, .astrolabe-inner{ animation: none; }
-  .hamsa-iris{ animation: none; }
+  .hamsa-iris, .illum-iris{ animation: none; }
   .card-face{ transition: none; }
   #pupilGroup{ transition: none; }
   .reveal{ opacity: 1; transform: none; transition: none; }
