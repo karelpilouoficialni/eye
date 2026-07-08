@@ -196,6 +196,44 @@ document.querySelectorAll('.card').forEach(card => {
 })();
 
 /* ============================
+   ASTROLABE SEGMENTS
+   ============================ */
+(function buildSegments(){
+  const group = document.getElementById('geoSegments');
+  if (!group) return;
+  const cx = 200, cy = 200;
+  const rings = [35, 75, 115, 155];
+  const count = 36;
+  for (let i = 0; i < count; i++){
+    const angle = (i / count) * Math.PI * 2;
+    const x = cx + Math.cos(angle) * 190;
+    const y = cy + Math.sin(angle) * 190;
+    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    line.setAttribute('x1', cx);
+    line.setAttribute('y1', cy);
+    line.setAttribute('x2', x);
+    line.setAttribute('y2', y);
+    group.appendChild(line);
+  }
+  rings.forEach(r => {
+    for (let i = 0; i < count; i++){
+      const angle = (i / count) * Math.PI * 2;
+      const next = ((i + 1) / count) * Math.PI * 2;
+      const x1 = cx + Math.cos(angle) * r;
+      const y1 = cy + Math.sin(angle) * r;
+      const x2 = cx + Math.cos(next) * r;
+      const y2 = cy + Math.sin(next) * r;
+      const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      line.setAttribute('x1', x1);
+      line.setAttribute('y1', y1);
+      line.setAttribute('x2', x2);
+      line.setAttribute('y2', y2);
+      group.appendChild(line);
+    }
+  });
+})();
+
+/* ============================
    THE SEAM (konami-style easter egg)
    ============================ */
 (function theSeam(){

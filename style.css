@@ -340,6 +340,73 @@ h1{
 }
 
 /* ============================
+   SACRED GEOMETRY
+   ============================ */
+.geometry{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 5vw;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 6vh 6vw 18vh;
+}
+
+.geo-copy{
+  max-width: 420px;
+}
+
+.geo-copy h2{
+  font-family: var(--display);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  line-height: 1.35;
+  margin-bottom: 1.2rem;
+}
+
+.geo-copy p{
+  color: var(--bone-dim);
+  line-height: 1.8;
+}
+
+.geo-wrap{
+  width: min(60vw, 280px);
+}
+
+.astrolabe{
+  width: 100%;
+  filter: drop-shadow(0 0 40px rgba(201,161,59,0.12));
+  animation: revolve 120s linear infinite;
+}
+
+@keyframes revolve{ to{ transform: rotate(360deg); } }
+
+.geo-ring{
+  fill: none;
+  stroke: var(--brass);
+  stroke-width: 0.6;
+  opacity: 0.35;
+}
+
+.geo-ring-outer{
+  stroke: var(--gold);
+  stroke-width: 1;
+  opacity: 0.5;
+}
+
+#geoSegments line{
+  stroke: var(--brass);
+  stroke-width: 0.4;
+  opacity: 0.2;
+}
+
+.geo-eye{
+  fill: var(--gold);
+  opacity: 0.6;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+/* ============================
    THRESHOLD / FOOTER
    ============================ */
 .threshold{
@@ -449,6 +516,7 @@ h1{
 @media (prefers-reduced-motion: reduce){
   html{ scroll-behavior: auto; }
   .eye-rays{ animation: none; }
+  .astrolabe{ animation: none; }
   .hamsa-iris{ animation: none; }
   .card-face{ transition: none; }
   #pupilGroup{ transition: none; }
